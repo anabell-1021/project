@@ -462,16 +462,7 @@ select{
 .container-2 .icon{
 	left: 10%;
 	font-size: 20px;
-    color: #FFFFFF;
-}
-
-.article{
-    position: absolute;
-    top: 510px;
-    left: 82px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 25% 25% 25% 25%; 
+  color: #FFFFFF;
 }
 
 /* RWD */

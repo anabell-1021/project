@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Tourime</title>
+    <!--載入先後順序與響應速度有關-->
+    <!-- 載入ＣＳＳ-->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="twicon/twicon.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/fontawesome.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <!-- icons-->
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+</head>
+<body>
+
+  <!-- 首頁 -->
+      <!-- 類別 -->
+      <!-- 收尋欄 -->
+      <!-- 收尋結果 4*4 -->
+      <!-- 頁籤 -->
+
+<div class="menu">
+
+    <!-- <div class="banner">  -->
+    <div class="home" id="home">
+      <div><input type="button" class="logo"></div>
+      <div><button type="button" class="like">
+        <span class="ui-icon ui-icon-heart"></span>我的最愛</button>
+      </div>
+      <div><input type="button" class="caption" value="景點"></div>
+
+      <section>
+
+        <!-- <div><input type="button" class="category" value="景點" style="left: 188px;"><div class="img_icon"></div></div>
+        <div><input type="button" class="category" value="餐飲" style="left: 308px;"></div>
+        <div><input type="button" class="category" value="旅宿" style="left: 428px;"></div>
+        <div><input type="button" class="category" value="活動" style="left: 548px;"></div> -->
+        <div class="category">
+          <span class="icon"><i class="fas fa-camera"></i></span>
+          <input type="button" id ="button" class="spot" value="景點">
+          <span class="icon"><i class="fas fa-utensils"></i></span>
+          <input type="button" id ="button" class="food" value="餐飲">
+          <span class="icon"><i class="fas fa-home"></i></i></span>
+          <input type="button" id ="button" class="hotel" value="旅宿">
+          <span class="icon"><i class="fas fa-palette"></i></i></span>
+          <input type="button" id ="button" class="activity" value="活動">
+
+        </div>
+        <!-- 用script在button標籤中增加圖示
+        <button>GFG Button</button>
+        <script>
+            $("button").button({
+                icon:"ui-icon ui-icon-heart"
+            });
+        </script> -->
+      </section>
+    </div>
+    <!-- <div class="search">
+        <div class="container-1">
+          <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+            <input type="search" id="search" placeholder="輸入想去的地區" />
+          <span class="icon"><i class="fas fa-binoculars"></i></span>
+            <input type="search" id="search" placeholder="輸入景點名稱" />
+        </div>
+
+    </div> -->
+    <div class="search">
+        <div class="container-1">
+          <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+            <input type="search" id="search" placeholder="輸入想去的地區" />
+          <span class="icon"><i class="fas fa-binoculars"></i></span>
+            <input type="search" id="search" placeholder="輸入景點名稱" />
+        </div>
+        <div class="container-2">
+          <span class="icon"><i class="fas fa-search"></i></i></span>
+          <input type="button" id ="button" class="spot" value="搜尋">
+        </div>
+    </div>
+
+</div>
+
+<!-- result -->
+<div class="content">
+    <div class="result mt-4">
+      <div class="line_1"></div>
+      <div class="result_title">搜尋結果</div>
+      <div class="sort font-4">排序
+        <select name="sort">
+          <option value="">排序選擇</option>
+          <option value="最新" selected>最新</option>
+          <option value="最舊">最舊</option>
+          <option value="收藏">收藏</option>
+          <option value="最近">最近</option>
+      </select>
+      </div>
+    </div>
+
+</div>
+<!-- 串接ＡＰＩ -->
+<div class="article">
+    <div class="item">
+        <img src="">
+        <div class="txt">
+            <h5>標題</h5>
+            <p>地區</p>
+            <div class="kind">類別</div>
+        </div>
+    </div>
+    
+</div>
+
+<!-- Core theme JS-->
+  <script src="js/scripts.js"></script>
+
+
+</body>
+</html>

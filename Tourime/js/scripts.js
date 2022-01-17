@@ -1,8 +1,4 @@
-//javascript
-
-/*
-javascript
-*/
+// javascript
 
 
 //跳轉連結至首頁
@@ -51,28 +47,68 @@ javascript
 //     return { 'Authorization': Authorization, 'X-Date': GMTString };
 // }
 
-$(function () {
-    $.ajax({
-        type: 'GET',
-        url: 'https://ptx.transportdata.tw/MOTC/v2/Rail/TRA/Station?$top=10&$format=JSON', //欲呼叫之API網址(此範例為台鐵車站資料)
-        dataType: 'json',
-        headers: GetAuthorizationHeader(),
-        success: function (Data) {
-            $('body').text(JSON.stringify(Data));
-        }
-    });
-});
+// $(function () {
+//     $.ajax({
+//         type: 'GET',
+//         url: 'https://ptx.transportdata.tw/MOTC/v2/Rail/TRA/Station?$top=10&$format=JSON', //欲呼叫之API網址(此範例為台鐵車站資料)
+//         dataType: 'json',
+//         headers: GetAuthorizationHeader(),
+//         success: function (Data) {
+//             $('.spot').text(JSON.stringify(Data));
+//         }
+//     });
+// });
 
-function GetAuthorizationHeader() {
-    var AppID = 'd595bbed3b664388a6813b013e4a6d3a';
-    var AppKey = 'vB1_5kfk4LixTqh_YHdhx9XAAmY';
+// function GetAuthorizationHeader() {
+//     var AppID = 'd595bbed3b664388a6813b013e4a6d3a';
+//     var AppKey = 'vB1_5kfk4LixTqh_YHdhx9XAAmY';
 
-    var GMTString = new Date().toGMTString();
-    var ShaObj = new jsSHA('SHA-1', 'TEXT');
-    ShaObj.setHMACKey(AppKey, 'TEXT');
-    ShaObj.update('x-date: ' + GMTString);
-    var HMAC = ShaObj.getHMAC('B64');
-    var Authorization = 'hmac username=\"' + AppID + '\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\"' + HMAC + '\"';
+//     var GMTString = new Date().toGMTString();
+//     var ShaObj = new jsSHA('SHA-1', 'TEXT');
+//     ShaObj.setHMACKey(AppKey, 'TEXT');
+//     ShaObj.update('x-date: ' + GMTString);
+//     var HMAC = ShaObj.getHMAC('B64');
+//     var Authorization = 'hmac username=\"' + AppID + '\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\"' + HMAC + '\"';
 
-    return { 'Authorization': Authorization, 'X-Date': GMTString /*,'Accept-Encoding': 'gzip'*/}; //如果要將js運行在伺服器，可額外加入 'Accept-Encoding': 'gzip'，要求壓縮以減少網路傳輸資料量
-}
+//     return { 'Authorization': Authorization, 'X-Date': GMTString /*,'Accept-Encoding': 'gzip'*/}; //如果要將js運行在伺服器，可額外加入 'Accept-Encoding': 'gzip'，要求壓縮以減少網路傳輸資料量
+// }
+
+// let data;
+
+
+// axios.get('https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot?$top=30&$format=JSON').then(function(res){
+//   let data = res.data;
+//  console.log(data); document.querySelector('.container').innerHTML = `
+//  <h1>${data[0].ScenicSpotName}</h1>
+//  <img src="${data[0].Picture.PictureUrl1}">` 
+// })
+// ------------------------------------------------------------------------------------------------------
+// (function() {
+//     const BASE_URL = "https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot?$top=30&$format=JSON/";
+  
+//     axios.get(BASE_URL).then(response => {
+//     const data = response.data[0]; 
+//     renderNavbarAvatar(data)
+//     console.log('data', data)
+//     })
+  
+//   })();
+  
+//   function renderNavbarAvatar(data) {
+//     console.log('data', data)
+//     const avatar = document.querySelector('[data-target="avatar-thumbnail"]')
+//     // avatar.innerHTML = '<h2>hello!</h2>'
+//     // console.log('avatar',avatar)
+//   //   avatar.innerHTML = `
+//   // <img src="${data.picture.thumbnail}" alt="avatar">
+//   //         <span>${data.name.first}</span>
+//   //         `
+    
+//     avatar.innerHTML = `
+//     <img src="${data.Picture.PictureUrl1}" alt="avatar">
+//     <span>${data.ScenicSpotName}</span>
+//   `
+//   }
+
+  
+  

@@ -10,14 +10,19 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/jquery-ui.min.css">
     <link rel="stylesheet" href="css/jquery-ui.theme.min.css">
-    <link rel="stylesheet" href="twicon/twicon.css">
+    <!-- <link rel="stylesheet" href="twicon/twicon.css"> -->
     <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
+
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/all.min.js"></script>
     <script src="js/fontawesome.min.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/3.2.0/sha.js"></script>
     <!-- icons-->
     <link rel="shortcut icon" href="img/favicon.ico">
 
@@ -46,7 +51,7 @@
         <div><input type="button" class="category" value="餐飲" style="left: 308px;"></div>
         <div><input type="button" class="category" value="旅宿" style="left: 428px;"></div>
         <div><input type="button" class="category" value="活動" style="left: 548px;"></div> -->
-        <div class="category">
+        <div class="category" >
           <span class="icon"><i class="fas fa-camera"></i></span>
           <input type="button" id ="button" class="spot" value="景點">
           <span class="icon"><i class="fas fa-utensils"></i></span>
@@ -104,10 +109,37 @@
           <option value="最近">最近</option>
       </select>
       </div>
+
+    </div>  
+    <!-- <img src="https://mir-s3-cdn-cf.behance.net/user/230/0c2ca412074327.5b80152926cd6.png"style="width: 70px;height: 70px;" class="shake-vertical"> -->
+    <!-- <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/22c45b72065407.5bda97cb19e5e.jpg" > -->
+    <div class="spot mt-2">
+      <div class="box" data-target="box">
+        <img
+          class="spot-bg"
+          src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/2ed51c72065295.5bda96c5b8c3f.jpg"
+          alt="景點圖片"
+        >
+        <div class="txt"> 
+          <span class="font-3">景點標題</span>
+          <br> 
+          <span class="font-4">地區</span>
+          <br>
+          <input type="button" id ="tag" class="tag" value="標籤">
+          <input type="button" id ="tag" class="tag" value="標籤">
+        </div>
+          
+      </div>
+
     </div>
 
+
 </div>
-<div class="spot"></div>
+
+
+
+
+<!-- <div class="spot"></div> -->
 
 <!-- Core theme JS-->
   <script src="js/scripts.js"></script>

@@ -132,7 +132,11 @@ color: var(--unnamed-color-ffffff);
 }
 
 .mt-2{
-    margin-top: 25px;
+    margin-top: 16px;
+}
+
+.mt-3{
+	margin-top: 25px;
 }
 
 .mt-4{
@@ -157,7 +161,7 @@ color: var(--unnamed-color-ffffff);
 
 .font-4{
     font-size: 14px;
-    line-height: 19px;
+    line-height: 35px;
     text-align: left;
     color: #959595;
     opacity: 1;
@@ -372,7 +376,7 @@ section{
 }
 
 
-select{
+.sort select{
     background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border-radius: 6px;
@@ -437,8 +441,8 @@ select{
 
 }
 
-.search input#search{
-  width: 458px;
+.search select{
+  width: 400px;   /* 458 */
   height: 60px;
   background: #ffffff;
 	border: none;
@@ -451,6 +455,38 @@ select{
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
+
+
+.search input#search{
+  width: 400px;  /* 458 */
+  height: 60px;
+  background: #ffffff;
+	border: none;
+	font-size: 10pt;
+	color: #63717f;
+	float: left;
+	padding-left: 45px;
+	margin-left: 15px;
+	-webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.search select.limit{
+    width: 100px;
+    height: 60px;
+    background: #ffffff;
+      border: none;
+      font-size: 10pt;
+      color: #63717f;
+      float: left;
+      padding-left: 15px;
+      margin-left: 15px;
+      -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  
 
 .container-2{
 	position: absolute;
@@ -483,10 +519,9 @@ select{
 }
 
 .spot{
-
     width: 100vw;
     height: 100vh;
-    background-color: rgb(84, 47, 185);
+    background-color: rgb(228, 176, 208);
     z-index: 10;
 }
 
@@ -494,7 +529,7 @@ select{
     position: relative;
     width: 304px;
     height: 306px;
-    background-color: rgb(231, 168, 231);
+    background-color: #FFFFFF;
     border-radius: 12px 12px 12px 12px;
     opacity: 1;
     z-index: 15;
@@ -512,22 +547,28 @@ select{
 }
 
 .txt{
-    padding-top: 16px;
     padding-left: 16px;
 }
 
 .box input#button{
     position: fixed;
     height: 27px;
-    background: #C8C8C8 0% 0% no-repeat padding-box;
-    border-radius: 4px;
-    opacity: 1;
+		opacity: 1;
+
 }
 .tag{
-    padding: 2px 4px;
-    margin-top: 8px;
-    margin-right: 8px;
+		border:0;
+		border-radius: 4px;
+		color: #707070;
+        padding: 2px 4px;
+        margin-right: 8px;
+		background: #C8C8C8 0% 0% no-repeat padding-box;
 }
+
+.list{
+    padding-left: 45px;
+}
+
 
 /* RWD */
 @media (max-width: 600px){

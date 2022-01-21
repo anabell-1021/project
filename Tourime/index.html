@@ -20,9 +20,10 @@
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/all.min.js"></script>
     <script src="js/fontawesome.min.js"></script>
-    <script src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/3.2.0/sha.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <!-- icons-->
     <link rel="shortcut icon" href="img/favicon.ico">
 
@@ -85,7 +86,7 @@
           <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
             <!-- <input type="search" id="search" placeholder="輸入想去的地區" required
             minlength="1" maxlength="4" size="4"/> -->
-            <select class="city" name="search">
+            <select class="area" name="search">
               <option value="Taipei" selected>輸入想去的地區</option>
               <option value="Taipei">台北市</option>
               <option value="NewTaipei">新北市</option>
@@ -113,11 +114,11 @@
             <span class="icon"><i class="fas fa-binoculars"></i></span>
               <input type="search" id="search" placeholder="輸入景點名稱關鍵字" class="keyword"/>
             <select class="limit">
-              <option value="48">篩選筆數</option>
+              <option value="48" selected>篩選筆數</option>
               <option value="16">16</option>
               <option value="48">48</option>
               <option value="80">80</option>
-            </select>  
+            </select>
           </div>
         <div class="container-2">
           <span class="icon"><i class="fas fa-search"></i></i></span>
@@ -160,8 +161,8 @@
 
       </div>
       <h2>景點列表</h2>
-        <ul class="list">
-          
+        <ul class="list" data-target="list">
+
         </ul>
     </div>
 

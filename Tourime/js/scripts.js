@@ -10,9 +10,8 @@
       const keywordTxt = keyword.value; 
       const limitNum = limit.value;
   
-      axios.get(
-        `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/${areacity}?%24select=ScenicSpotName&%24filter=contains(ScenicSpotName%2C'${keywordTxt}')&%24top=${limitNum}&%24format=JSON
-      `,
+      axios.get(`https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/${areacity}?%24filter=contains(ScenicSpotName%2C'${keywordTxt}')&%24top=${limitNum}&%24format=JSON` 
+       ,
         {
           headers: getAuthorizationHeader()
         }
@@ -21,8 +20,24 @@
         const thisData = response.data;
         let str="";
         thisData.forEach(item=>{
+          console.log(`https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/${areacity}?%24select=ScenicSpotName&%24filter=contains(ScenicSpotName%2C'${keywordTxt}')&%24top=${limitNum}&%24format=JSON
+      `)
           console.log(item)
-          str+=`<li>${item.ScenicSpotName}</li>`
+          str+=`<li class="box" data-target="box">
+          <img class="spot-bg"
+            src="${item.Picture.PictureUrl1}"
+            alt="景點圖片"
+          >
+          <div class="txt mt-1">
+            <span class="font-3">${item.ScenicSpotName}</span>
+            <br>
+            <span class="font-4">${item.City}</span>
+            <br>
+            <input type="button" id ="tag" class="tag" value="${item.Class1}">
+            <input type="button" id ="tag" class="tag" value="${item.Class2}">
+          </div>
+        
+        </li>`
         })
         list.innerHTML = str;
       })
@@ -30,8 +45,7 @@
         console.log(error);
       }); 
     })
-})();
-
+  
   
   
   
@@ -49,4 +63,8 @@
       return { 'Authorization': Authorization, 'X-Date': GMTString }; 
     }
   
+  })();
+  
+  //`https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/${areacity}?%24filter=contains(ScenicSpotName%2C'${keywordTxt}')&%24top=${limitNum}&%24format=JSON`   
+      
   

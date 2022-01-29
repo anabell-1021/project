@@ -173,7 +173,14 @@ color: var(--unnamed-color-ffffff);
 /* 收尋結果 4*4  */
 /* 頁籤 */
 
+img {
+    max-width: 100%;
+    display: block;
+  }
 
+ul li {
+    list-style: none;
+}
 
 .menu{
     width: 100%;
@@ -517,7 +524,23 @@ section{
 	font-size: 20px;
   color: #FFFFFF;
 }
-
+*, *::after, *::before {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+  }
+  
+.list{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    max-width: 1276px;
+    margin: 0 auto;
+    /* padding-left: 45px; */
+}
 .spot{
     width: 100vw;
     height: 100vh;
@@ -527,21 +550,32 @@ section{
 
 .box{
     position: relative;
-    width: 304px;
+    /* width: 304px; */
+    width: 23%;
     height: 306px;
     background-color: #FFFFFF;
     border-radius: 12px 12px 12px 12px;
     opacity: 1;
     z-index: 15;
+    margin-bottom: 32px;
+    margin-right: 1%;
 }
 .box img{
+    display: block;
     width: 304px;
     height: 190px;
     border-radius: 12px 12px 0px 0px;
     opacity: 1;
     z-index: 16;
     background: transparent 0% 0% no-repeat padding-box;
+    -o-object-fit: cover;
+     object-fit: cover;
 }
+
+.box img:hover {
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15);
+  }
 
 .spot-bg{
 }
@@ -565,9 +599,7 @@ section{
 		background: #C8C8C8 0% 0% no-repeat padding-box;
 }
 
-.list{
-    padding-left: 45px;
-}
+
 
 
 /* RWD */

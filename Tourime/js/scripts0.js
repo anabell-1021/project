@@ -96,7 +96,7 @@
 
 //   function renderNavbarAvatar(data) {
 //     console.log('data', data)
-//     const avatar = document.querySelector('[data-target="avatar-thumbnail"]')
+//     const avatar = document.querySelector('[data-target="list"]')
 //     // avatar.innerHTML = '<h2>hello!</h2>'
 //     // console.log('avatar',avatar)
 //   //   avatar.innerHTML = `
@@ -113,56 +113,54 @@
 //https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/Taichung?%24filter=contains(ScenicSpotName%2C'%E5%B1%B1')&%24top=6&%24format=JSON
 //https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/Taipei?%24filter=contains(ScenicSpotName%2C'%E5%B1%B1')&%24top=5&%24format=JSON
 //https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot?%24filter=contains(ScenicSpotName%2C'%E5%B1%B1')&%24top=3&%24format=JSON
-(function() {
-  const BASE_URL = "https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot?$top=30&$format=JSON/";
 
-  axios.get(BASE_URL,{
-    headers: getAuthorizationHeader()
-    }).then(response => {
-  const data = response.data[0];
-  renderNavbarAvatar(data)
-  console.log('data', data)
+(function(){
+  const area = document.querySelector('.area');
+  const keyword = document.querySelector('.keyword');
+  const limit = document.querySelector('.limit');
+  const send = document.querySelector('.send');
+  const list = document.querySelector('.list');
+  send.addEventListener('click',function(e){
+    const areacity = area.value;
+    const keywordTxt = keyword.value; 
+    const limitNum = limit.value;
+
+    axios.get(
+      `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/${areacity}?%24select=ScenicSpotName&%24filter=contains(ScenicSpotName%2C'${keywordTxt}')&%24top=${limitNum}&%24format=JSON
+    `,
+      {
+        headers: getAuthorizationHeader()
+      }
+    )
+      .then(function (response) {
+      const thisData = response.data;
+      let str="";
+      thisData.forEach(item=>{
+        console.log(item)
+        str+=`<li>${item.ScenicSpotName}</li>`
+      })
+      list.innerHTML = str;
+    })
+      .catch(function (error) {
+      console.log(error);
+    }); 
   })
-
 })();
 
-function renderNavbarAvatar(data) {
-  console.log('data', data)
-  const avatar = document.querySelector('[data-target="avatar-thumbnail"]')
-  // avatar.innerHTML = '<h2>hello!</h2>'
-  // console.log('avatar',avatar)
-  avatar.innerHTML = `
-  <li>${data.ScenicSpotName}</li>
-`
-}
 
-function getAuthorizationHeader() {
-//   ID、KEY 開始
+
+
+  function getAuthorizationHeader() {
+    //  填入自己 ID、KEY 開始
     let AppID = 'd595bbed3b664388a6813b013e4a6d3a';
     let AppKey = 'vB1_5kfk4LixTqh_YHdhx9XAAmY';
-//   ID、KEY 結束
+    //  填入自己 ID、KEY 結束
     let GMTString = new Date().toGMTString();
     let ShaObj = new jsSHA('SHA-1', 'TEXT');
     ShaObj.setHMACKey(AppKey, 'TEXT');
     ShaObj.update('x-date: ' + GMTString);
     let HMAC = ShaObj.getHMAC('B64');
     let Authorization = 'hmac username=\"' + AppID + '\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\"' + HMAC + '\"';
-    return { 'Authorization': Authorization, 'X-Date': GMTString };
-}
+    return { 'Authorization': Authorization, 'X-Date': GMTString }; 
+  }
 
-
-
-
-function getAuthorizationHeader() {
-//   ID、KEY 開始
-    let AppID = 'd595bbed3b664388a6813b013e4a6d3a';
-    let AppKey = 'vB1_5kfk4LixTqh_YHdhx9XAAmY';
-//   ID、KEY 結束
-    let GMTString = new Date().toGMTString();
-    let ShaObj = new jsSHA('SHA-1', 'TEXT');
-    ShaObj.setHMACKey(AppKey, 'TEXT');
-    ShaObj.update('x-date: ' + GMTString);
-    let HMAC = ShaObj.getHMAC('B64');
-    let Authorization = 'hmac username=\"' + AppID + '\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\"' + HMAC + '\"';
-    return { 'Authorization': Authorization, 'X-Date': GMTString };
-}

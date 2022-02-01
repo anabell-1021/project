@@ -16,7 +16,7 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 5;
+	margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
@@ -31,7 +31,29 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+body {
+    line-height: 1;
+  }
+  ol, ul ,ul li{
+    list-style: none;
+  }
+  blockquote, q {
+    quotes: none;
+  }
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+    content: '';
+    content: none;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
 
+  img {
+    max-width: 100%;
+    display: block;
+  }
 
 :root {
 
@@ -167,19 +189,9 @@ color: var(--unnamed-color-ffffff);
     opacity: 1;
 }
 
-/* 首頁  */
-/* 類別  */
-/* 收尋欄  */
-/* 收尋結果 4*4  */
-/* 頁籤 */
-
-img {
-    max-width: 100%;
-    display: block;
-  }
-
-ul li {
-    list-style: none;
+.container{
+    width: 1276px;
+    margin: 0 auto;
 }
 
 .menu{
@@ -189,56 +201,56 @@ ul li {
 
 }
 
-.home{
-    top: 10px;
-    left: 0px;
-    width:100%;
+.home header{
     display: flex;
-    z-index: 1;
     justify-content: space-between;
     align-items: center;
+    /* top: 10px;
+    left: 0px;
+    width:100%;
+    z-index: 1;
     padding: 10px;
     opacity: 1;
-		background-size: cover;
+	background-size: cover; */
 }
 
 .logo{
-    position: absolute;
-    border:0;
-    top: 27px;
-    left: 80px;
     width: 104px;
     height: 28px;
     background: transparent url('../img/icon_logo.png') 0% 0% no-repeat padding-box;
-    opacity: 1;
+    border:0;
+    /* top: 27px;
+    left: 80px;
+    opacity: 1; */
 }
 
 .like{
     /* float: left;
-    opacity: 1;   */
-    /* position: fixed;
+    opacity: 1;   
+    position: fixed;
     right: 4em;
     top: 10%;
     width: 109px;
     height: 35px;
-    margin-top: -2.5em; */
-    position: -webkit-sticky;  /* for Safari */
+    margin-top: -2.5em; 
+    --
+    position: -webkit-sticky;  -- for Safari --
     position: sticky;
     top: 0;
     right: 0;
+    margin: 2em 0 0;
+    opacity: 1;
+    */
+    display: flex;
     width: 109px;
     height: 35px;
-    margin: 2em 0 0;
-
     z-index: 50;
     border:0;
     background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #0000001F;
     border-radius: 6px;
-    opacity: 1;
     color: #63717f;
-
 }
 
 .caption{
@@ -606,3 +618,4 @@ section{
 @media (max-width: 600px){
 
 }
+

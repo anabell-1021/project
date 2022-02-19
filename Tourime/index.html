@@ -39,23 +39,17 @@
 <div class="menu">
 
     <!-- <div class="banner">  -->
-    <div class="home container" id="home">
-      <header>
-        <div><input type="button" class="logo"></div>
-        <div><button type="button" class="like">
-           <span class="ui-icon ui-icon-heart"></span>我的最愛</button>
-        </div>
-      </header>
-      
+  <div class="home container" id="home">
+      <div class="header">
+        <input type="button" class="logo">
+        <button type="button" class="like">
+           <span class="ui-icon ui-icon-heart"></span>我的最愛
+        </button>
+      </div>
       <div><input type="button" class="caption" value="景點"></div>
 
       <section>
-
-        <!-- <div><input type="button" class="category" value="景點" style="left: 188px;"><div class="img_icon"></div></div>
-        <div><input type="button" class="category" value="餐飲" style="left: 308px;"></div>
-        <div><input type="button" class="category" value="旅宿" style="left: 428px;"></div>
-        <div><input type="button" class="category" value="活動" style="left: 548px;"></div> -->
-        <div class="category" >
+        <!-- <div class="category" >
           <span class="icon"><i class="fas fa-camera"></i></span>
           <input type="button" id ="button" class="spot" value="景點">
           <span class="icon"><i class="fas fa-utensils"></i></span>
@@ -64,8 +58,13 @@
           <input type="button" id ="button" class="hotel" value="旅宿">
           <span class="icon"><i class="fas fa-palette"></i></i></span>
           <input type="button" id ="button" class="activity" value="活動">
-
-        </div>
+        </div> -->
+        <ul class="category">
+          <li><span class="icon"><i class="fas fa-camera"></i></span><a href="#">景點</a></li>
+          <li><span class="icon"><i class="fas fa-utensils"></i></span><a href="#">餐飲</a></li>
+          <li><span class="icon"><i class="fas fa-home"></i></i></span><a href="#">旅宿</a></li>
+          <li><span class="icon"><i class="fas fa-palette"></i></i></span><a href="#">活動</a></li>
+        </ul>
         <!-- 用script在button標籤中增加圖示
         <button>GFG Button</button>
         <script>
@@ -74,7 +73,7 @@
             });
         </script> -->
       </section>
-    </div>
+
     <!-- <div class="search">
         <div class="container-1">
           <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
@@ -82,13 +81,13 @@
           <span class="icon"><i class="fas fa-binoculars"></i></span>
             <input type="search" id="search" placeholder="輸入景點名稱" />
         </div>
-
     </div> -->
-    <div class="search">
-        <div class="container-1">
-          <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+    </div>
+    <div class="search container">
+
             <!-- <input type="search" id="search" placeholder="輸入想去的地區" required
             minlength="1" maxlength="4" size="4"/> -->
+            <div class="container-1">
             <select class="area" name="search">
               <option value="Taipei" selected>輸入想去的地區</option>
               <option value="Taipei">台北市</option>
@@ -114,8 +113,15 @@
               <option value="PenghuCounty">澎湖群島</option>
               <option value="LienchiangCounty">馬祖列島</option>
             </select>
+            <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+          </div>
+
+          <div class="container-1">
+            <input type="search" id="search" placeholder="輸入景點名稱關鍵字" class="keyword"/>
             <span class="icon"><i class="fas fa-binoculars"></i></span>
-              <input type="search" id="search" placeholder="輸入景點名稱關鍵字" class="keyword"/>
+          </div>
+
+          <div class="container-1">
             <select class="limit">
               <option value="48" selected>篩選筆數</option>
               <option value="16">16</option>
@@ -123,7 +129,8 @@
               <option value="80">80</option>
             </select>
           </div>
-        <div class="container-2">
+
+        <div class="container-1">
           <span class="icon"><i class="fas fa-search"></i></i></span>
           <input type="button" id ="button" class="send" value="搜尋">
         </div>
@@ -148,7 +155,7 @@
     <!-- <img src="https://mir-s3-cdn-cf.behance.net/user/230/0c2ca412074327.5b80152926cd6.png"style="width: 70px;height: 70px;" class="shake-vertical"> -->
     <!-- <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/22c45b72065407.5bda97cb19e5e.jpg" > -->
     <div class="spot mt-3">
-      
+
         <ul class="list" data-target="list">
 
         </ul>

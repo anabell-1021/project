@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Tourime</title>
+    <!--載入先後順序與響應速度有關-->
+    <!-- 載入ＣＳＳ-->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.theme.min.css">
+    <!-- <link rel="stylesheet" href="twicon/twicon.css"> -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/fontawesome.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/3.2.0/sha.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <!-- icons-->
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+</head>
+<body>
+
+  <!-- 首頁 -->
+      <!-- 類別 -->
+      <!-- 收尋欄 -->
+      <!-- 收尋結果 4*4 -->
+      <!-- 頁籤 -->
+
+<div class="menu">
+
+    <!-- <div class="banner">  -->
+    <div class="home" id="home">
+      <div><input type="button" class="logo"></div>
+      <div><button type="button" class="like">
+        <span class="ui-icon ui-icon-heart"></span>我的最愛</button>
+      </div>
+      <div><input type="button" class="caption" value="景點"></div>
+
+      <section>
+
+        <!-- <div><input type="button" class="category" value="景點" style="left: 188px;"><div class="img_icon"></div></div>
+        <div><input type="button" class="category" value="餐飲" style="left: 308px;"></div>
+        <div><input type="button" class="category" value="旅宿" style="left: 428px;"></div>
+        <div><input type="button" class="category" value="活動" style="left: 548px;"></div> -->
+        <div class="category" >
+          <span class="icon"><i class="fas fa-camera"></i></span>
+          <input type="button" id ="button" class="spot" value="景點">
+          <span class="icon"><i class="fas fa-utensils"></i></span>
+          <input type="button" id ="button" class="food" value="餐飲">
+          <span class="icon"><i class="fas fa-home"></i></i></span>
+          <input type="button" id ="button" class="hotel" value="旅宿">
+          <span class="icon"><i class="fas fa-palette"></i></i></span>
+          <input type="button" id ="button" class="activity" value="活動">
+
+        </div>
+        <!-- 用script在button標籤中增加圖示
+        <button>GFG Button</button>
+        <script>
+            $("button").button({
+                icon:"ui-icon ui-icon-heart"
+            });
+        </script> -->
+      </section>
+    </div>
+    <!-- <div class="search">
+        <div class="container-1">
+          <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+            <input type="search" id="search" placeholder="輸入想去的地區" />
+          <span class="icon"><i class="fas fa-binoculars"></i></span>
+            <input type="search" id="search" placeholder="輸入景點名稱" />
+        </div>
+
+    </div> -->
+    <div class="search">
+        <div class="container-1">
+          <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+            <!-- <input type="search" id="search" placeholder="輸入想去的地區" required
+            minlength="1" maxlength="4" size="4"/> -->
+            <select class="city" name="search">
+              <option value="Taipei" selected>輸入想去的地區</option>
+              <option value="Taipei">台北市</option>
+              <option value="NewTaipei">新北市</option>
+              <option value="Taoyuan">桃園縣</option>
+              <option value="Taichung">台中市</option>
+              <option value="Tainan">台南市</option>
+              <option value="Kaohsiung">高雄市</option>
+              <option value="Keelung">基隆市</option>
+              <option value="Hsinchu">新竹市</option>
+              <option value="HsinchuCounty">新竹縣</option>
+              <option value="MiaoliCounty">苗栗縣</option>
+              <option value="ChanghuaCounty">彰化縣</option>
+              <option value="NantouCounty">南投縣</option>
+              <option value="YunlinCounty">雲林縣</option>
+              <option value="ChiayiCounty">嘉義縣</option>
+              <option value="Chiayi">嘉義市</option>
+              <option value="PingtungCounty">屏東縣</option>
+              <option value="YilanCounty">宜蘭縣</option>
+              <option value="HualienCounty">花蓮縣</option>
+              <option value="TaitungCounty">台東縣</option>
+              <option value="KinmenCounty">金門縣</option>
+              <option value="PenghuCounty">澎湖群島</option>
+              <option value="LienchiangCounty">馬祖列島</option>
+            </select>
+            <span class="icon"><i class="fas fa-binoculars"></i></span>
+              <input type="search" id="search" placeholder="輸入景點名稱關鍵字" class="keyword"/>
+            <select class="limit">
+              <option value="48">篩選筆數</option>
+              <option value="16">16</option>
+              <option value="48">48</option>
+              <option value="80">80</option>
+            </select>
+          </div>
+        <div class="container-2">
+          <span class="icon"><i class="fas fa-search"></i></i></span>
+          <input type="button" id ="button" class="send" value="搜尋">
+        </div>
+    </div>
+</div>
+
+<!-- result -->
+<div class="content">
+    <div class="result mt-4">
+      <div class="line_1"></div>
+      <div class="result_title">搜尋結果</div>
+      <div class="sort font-4">排序
+        <select name="sort">
+          <option value="最新" selected>最新</option>
+          <option value="最舊">最舊</option>
+          <option value="收藏">收藏</option>
+          <option value="最近">最近</option>
+        </select>
+      </div>
+
+    </div>
+    <!-- <img src="https://mir-s3-cdn-cf.behance.net/user/230/0c2ca412074327.5b80152926cd6.png"style="width: 70px;height: 70px;" class="shake-vertical"> -->
+    <!-- <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/22c45b72065407.5bda97cb19e5e.jpg" > -->
+    <div class="spot mt-3">
+      <div class="box" data-target="box">
+        <img class="spot-bg"
+          src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/2ed51c72065295.5bda96c5b8c3f.jpg"
+          alt="景點圖片"
+        >
+        <div class="txt mt-1">
+          <span class="font-3">景點標題</span>
+          <br>
+          <span class="font-4">地區</span>
+          <br>
+          <input type="button" id ="tag" class="tag" value="標籤">
+          <input type="button" id ="tag" class="tag" value="標籤">
+        </div>
+
+      </div>
+      <h2>景點列表</h2>
+        <ul class="list" data-target="avatar-thumbnail">
+
+        </ul>
+    </div>
+
+
+</div>
+
+
+
+
+<!-- <div class="spot"></div> -->
+
+<!-- Core theme JS-->
+  <script src="js/scripts.js"></script>
+
+
+</body>
+</html>
